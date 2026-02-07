@@ -12,9 +12,13 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-app-silk-ten-63.vercel.app"
+];
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:allowedOrigins,
     credentials:true
 }))
 app.use(express.json());

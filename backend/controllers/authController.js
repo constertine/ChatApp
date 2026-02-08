@@ -36,6 +36,7 @@ export const signUp = async(req,res) => {
         const token = await genToken(user._id);
 
         res.cookie("token", token,{
+            path: '/' ,
             httpOnly:true,
             secure:true,
             sameSite:"none",
@@ -77,6 +78,7 @@ export const login = async(req,res) => {
         const token = await genToken(user._id);
 
         res.cookie("token", token,{
+            path: '/' ,
             httpOnly:true,
             secure:true,
             sameSite:"none",
@@ -98,6 +100,7 @@ export const login = async(req,res) => {
 export const logout = async(req,res) => {
     try {
         res.clearCookie("token", {
+   path: '/' ,
   secure: true,
   sameSite: "none"
 });
